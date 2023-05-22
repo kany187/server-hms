@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 
 async function httpGetMe(req, res){
     try {
-        const user = await User.findById(req.user._id).select('-password')
+        const user = await User.findById(req.user._id).select('-password -isAdmin')
         return res.status(200).json(user)
     } catch (error) {
         res.status(500).json(error)
@@ -31,8 +31,8 @@ async function httpPostNewUser(req,res){
 
         const token = user.generateAuthToken();
         return res
-        .header('token', token)
-        .header("access-control-expose-headers", 'token')
+        .header('x-auth-token', token)
+        .header("access-control-expose-headers", "x-auth-token")
         .send(user)
         
     } catch (error) {
@@ -46,7 +46,7 @@ async function httpPutUser(req, res){
 
     if(!user) return res.status(404).send('The user with the given id does not exist!');
 
-    res.status(200).res.json("user has been modified.")  
+    res.status(200).json("User has been modified.")  
     } catch (error) {
         res.status(500).json(error)
     }  

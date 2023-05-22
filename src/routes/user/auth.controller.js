@@ -1,6 +1,10 @@
 const User = require('../../models/user/user.mongo');
+const {redisClient} = require('../../startup/mongo');
 const bcrypt = require('bcrypt')
 
+const setToken = (key, value) => {
+    return Promise.resolve(redisClient.set(key, value))
+}
 
 async function httpPostNewUser(req,res){
     try {
@@ -12,6 +16,8 @@ async function httpPostNewUser(req,res){
 
         const token = user.generateAuthToken();
 
+        await setToken(token, user._id.toString());
+  
         return res.status(200).send(token);
 
     } catch (error) {

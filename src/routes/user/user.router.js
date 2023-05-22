@@ -13,7 +13,8 @@ const { httpGetAllUser,
 //This route manage patient Users and availability
 const userRouter = express.Router();
 
-userRouter.get('/me',  httpGetMe);
+userRouter.get('/me', auth, httpGetMe);
+userRouter.get('/:id',  httpGetMe);
 userRouter.get('/', httpGetAllUser);
 userRouter.post('/', httpPostNewUser);
 userRouter.put('/:id', httpPutUser);
