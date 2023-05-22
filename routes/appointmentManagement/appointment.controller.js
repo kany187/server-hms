@@ -5,6 +5,7 @@ const { getAllAppointments,
         deleteAppointment
  } = require('../../models/appointmentManagement/appointment.model')
 
+
 async function httpGetAllAppointments(req, res){
     try {
         return res.status(200).json(await getAllAppointments())

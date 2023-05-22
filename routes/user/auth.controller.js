@@ -1,7 +1,7 @@
 const User = require('../../models/user/user.mongo');
 const {redisClient} = require('../../startup/mongo');
 const bcrypt = require('bcrypt')
-
+User
 const setToken = (key, value) => {
     return Promise.resolve(redisClient.set(key, value))
 }

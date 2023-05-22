@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/server.js",
-    "watch": "nodemon src/server.js",
+    "start": "node index.js",
+    "build": "npm run build",
+    "watch": "nodemon index.js",
     "test": "jest --watchAll --verbose"
   },
   "engines": {
