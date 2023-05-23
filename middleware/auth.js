@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const {redisClient } = require('../startup/mongo');
+//const {redisClient } = require('../startup/mongo');
 
 module.exports = function (req, res, next) {
     const token = req.header('x-auth-token');
@@ -10,7 +10,7 @@ module.exports = function (req, res, next) {
         const decoded = jwt.verify(token, process.env.JWT_SEC);
         req.user = decoded;
 
-        redisClient.get(token);
+        //redisClient.get(token);
         next();
            
     } catch (error) {

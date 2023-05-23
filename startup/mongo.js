@@ -1,21 +1,21 @@
 require('dotenv').config();
 
 const mongoose = require('mongoose');
-const redis = require('redis');
+//const redis = require('redis');
 
 const testdb = process.env.MONGODB_TEST_URL;
 const db = process.env.MONGODB_URL;
-const redisClient = redis.createClient(process.env.REDIS);
+//const redisClient = redis.createClient(process.env.REDIS);
 
-redisClient.on("connect", () => {
-    console.log('Client connected to redis...')
-});
+// redisClient.on("connect", () => {
+//     console.log('Client connected to redis...')
+// });
 
-redisClient.on("error", (error) => {
-    console.error(error);
-});
+// redisClient.on("error", (error) => {
+//     console.error(error);
+// });
  
-redisClient.connect();
+// redisClient.connect();
 
 mongoose.connection.once('open', () => {
     console.log('Database connected...')
@@ -41,5 +41,5 @@ async function mongoDisconnect(){
 module.exports = {
     mongoConnect,
     mongoDisconnect,
-    redisClient
+    //redisClient
 }
