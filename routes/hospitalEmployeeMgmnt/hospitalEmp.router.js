@@ -9,7 +9,7 @@ const {
     httpPutModifyHospitalEmployeeInfo,
     httpDeleteHospitalEmployee,
     uploadImg
- } = require('./HospitalEmp.controller')
+ } = require('./hospitalEmp.controller')
 
 //This route manage patient appointments and availability
 const hospitalEmployeeInfoRouter = express.Router();
