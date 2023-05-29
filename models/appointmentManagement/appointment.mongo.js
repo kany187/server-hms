@@ -7,9 +7,6 @@ const appointmentSchema = new mongoose.Schema({
         minlength: 5,
         maxlength: 50
     },
-    title: {
-        type: String
-    },
     doctorID: {
         type: String,
         //required: true
@@ -17,22 +14,14 @@ const appointmentSchema = new mongoose.Schema({
     phone: {
         type: String,
     },
-    service: {
+    visitType: {
         type: String
     },
-    startDate: {
-        type: String,
+    date: {
+        type: Date,
         required: true
-    },
-    endDate: {
-        type: String,
-        //required: true
     },
     startTime: {
-        type: String,
-        required: true
-    },
-    endTime: {
         type: String,
         required: true
     },

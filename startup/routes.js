@@ -9,6 +9,8 @@ const patientInfoRouter = require('../routes/patientMgmnt/patient.router');
 const doctorInfoRouter = require('../routes/hospitalEmployeeMgmnt/Doctor/doctor.router');
 const userRouter = require('../routes/user/user.router');
 const authRouter = require('../routes/user/auth.router');
+const conversationRouter = require('../routes/chat/conversation/conversation.router')
+const messageRouter = require('../routes/chat/message/message.router')
 
 module.exports = function(app){
     app.use(express.json());
@@ -19,6 +21,8 @@ module.exports = function(app){
     app.use('/api/hospital', hospitalInfoRouter);
     app.use('/api/department', departmentInfoRouter);
     app.use('/api/hospital/emp', hospitalEmployeeInfoRouter);
+    app.use('/api/hospital/conversation', conversationRouter);
+    app.use('/api/hospital/message', messageRouter);
     app.use('/api/users', userRouter);
     app.use('/api/auth', authRouter)
 }

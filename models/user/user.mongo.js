@@ -28,7 +28,10 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false
    },
-   roles: [],
+   roles: {
+      type: [String],
+      enum: ['admin', 'nurse', 'doctor', 'receptionist']
+   },
    operations: []
    
 })
